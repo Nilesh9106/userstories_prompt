@@ -1,0 +1,284 @@
+{
+  "user_personas": ["User", "Author", "Admin"],
+  "user_stories": [
+    {
+      "user_story": "As a user, I want to sign up using my email and password, so that I can create an account on the blog app.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "User Profile Page" },
+          "backend": { "api_route": "/api/auth/signup" }
+        }
+      },
+      "estimation": 8,
+      "acceptance_criteria": [
+        "Users can create an account with email and password.",
+        "Account verification via email is implemented."
+      ]
+    },
+    {
+      "user_story": "As a user, I want to log in using my email and password, so that I can access the blog app.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "User Dashboard" },
+          "backend": { "api_route": "/api/auth/login" }
+        }
+      },
+      "estimation": 8,
+      "acceptance_criteria": [
+        "Users can log in with their credentials.",
+        "Password reset functionality is available."
+      ]
+    },
+    {
+      "user_story": "As a user, I want to sign up or log in using my social media accounts, so that I can quickly access the blog app.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "User Dashboard" },
+          "backend": { "api_route": "/api/auth/social-login" }
+        }
+      },
+      "estimation": 20,
+      "acceptance_criteria": [
+        "Users can log in using Google and Facebook accounts.",
+        "Social media login is secure and follows OAuth standards.",
+        "Users can link/unlink social media accounts in their profile settings."
+      ]
+    },
+    {
+      "user_story": "As an author, I want to create blog posts, so that I can share my content with users.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Blog Editor Page" },
+          "backend": { "api_route": "/api/blog/create" }
+        }
+      },
+      "estimation": 12,
+      "acceptance_criteria": [
+        "Authors can add titles, content, images, and tags to blog posts.",
+        "Posts can be saved as drafts before publishing."
+      ]
+    },
+    {
+      "user_story": "As an author, I want to publish blog posts, so that they are visible to all users.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Blog Management Page" },
+          "backend": { "api_route": "/api/blog/publish" }
+        }
+      },
+      "estimation": 12,
+      "acceptance_criteria": ["Published posts are visible to all users."]
+    },
+    {
+      "user_story": "As an author, I want to edit my blog posts, so that I can update my content.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Blog Editor Page" },
+          "backend": { "api_route": "/api/blog/edit" }
+        }
+      },
+      "estimation": 6,
+      "acceptance_criteria": [
+        "Authors can edit the title, content, images, and tags of their posts.",
+        "Changes are reflected immediately after saving."
+      ]
+    },
+    {
+      "user_story": "As an author, I want to delete my blog posts, so that I can remove them from public view.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Blog Management Page" },
+          "backend": { "api_route": "/api/blog/delete" }
+        }
+      },
+      "estimation": 6,
+      "acceptance_criteria": [
+        "Authors can delete their posts, removing them from public view."
+      ]
+    },
+    {
+      "user_story": "As an author, I want to schedule my blog posts for future publication, so that I can manage my content release effectively.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Blog Scheduler Page" },
+          "backend": { "api_route": "/api/blog/schedule" }
+        }
+      },
+      "estimation": 16,
+      "acceptance_criteria": [
+        "Authors can set a future date and time for post publication.",
+        "Scheduled posts are automatically published at the specified time.",
+        "Authors can edit or cancel scheduled posts before publication."
+      ]
+    },
+    {
+      "user_story": "As a user, I want to browse through a list of published blogs, so that I can discover new content.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "public_page": "Blog List Page" },
+          "backend": { "api_route": "/api/blog/browse" }
+        }
+      },
+      "estimation": 14,
+      "acceptance_criteria": [
+        "Users can view a list of published blog posts.",
+        "Pagination or infinite scroll is implemented for large lists."
+      ]
+    },
+    {
+      "user_story": "As a user, I want to filter blogs by categories or tags, so that I can find content relevant to my interests.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "public_page": "Blog List Page" },
+          "backend": { "api_route": "/api/blog/filter" }
+        }
+      },
+      "estimation": 8,
+      "acceptance_criteria": ["Posts can be filtered by categories or tags."]
+    },
+    {
+      "user_story": "As a user, I want to search for specific blog posts using keywords, so that I can find content relevant to my interests.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "public_page": "Blog Search Page" },
+          "backend": { "api_route": "/api/blog/search" }
+        }
+      },
+      "estimation": 18,
+      "acceptance_criteria": [
+        "Users can search for posts using keywords.",
+        "Search results are relevant and displayed quickly.",
+        "Search supports partial matches and synonyms."
+      ]
+    },
+    {
+      "user_story": "As a user, I want to leave comments on blog posts, so that I can engage with the content and author.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Blog Post Page" },
+          "backend": { "api_route": "/api/comments/add" }
+        }
+      },
+      "estimation": 12,
+      "acceptance_criteria": [
+        "Users can add comments to blog posts.",
+        "Comments are displayed in chronological order."
+      ]
+    },
+    {
+      "user_story": "As a user, I want to edit or delete my comments, so that I can manage my interactions.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Blog Post Page" },
+          "backend": { "api_route": "/api/comments/manage" }
+        }
+      },
+      "estimation": 8,
+      "acceptance_criteria": ["Users can edit or delete their own comments."]
+    },
+    {
+      "user_story": "As a user, I want to like or dislike blog posts, so that I can express my opinion on the content.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Blog Post Page" },
+          "backend": { "api_route": "/api/reactions/manage" }
+        }
+      },
+      "estimation": 12,
+      "acceptance_criteria": [
+        "Users can like or dislike a post.",
+        "The total count of likes and dislikes is displayed.",
+        "Users can change their reaction (like to dislike and vice versa)."
+      ]
+    },
+    {
+      "user_story": "As a user, I want to share blog posts on social media platforms, so that I can spread content I find interesting.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "public_page": "Blog Post Page" },
+          "backend": { "api_route": "/api/share" }
+        }
+      },
+      "estimation": 10,
+      "acceptance_criteria": [
+        "Users can share posts on platforms like Facebook, Twitter, etc.",
+        "Shared links direct back to the blog post.",
+        "Sharing is seamless and user-friendly."
+      ]
+    },
+    {
+      "user_story": "As an admin, I want to organize blog posts using tags and categories, so that users can navigate content easily.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Admin Panel" },
+          "backend": { "api_route": "/api/admin/tags-categories" }
+        }
+      },
+      "estimation": 14,
+      "acceptance_criteria": [
+        "Admins can create, edit, and delete tags and categories.",
+        "Posts can be assigned to multiple tags and categories."
+      ]
+    },
+    {
+      "user_story": "As a user, I want to receive email notifications for new blog posts and comments, so that I stay updated with content I follow.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "User Settings Page" },
+          "backend": { "api_route": "/api/notifications/email" }
+        }
+      },
+      "estimation": 16,
+      "acceptance_criteria": [
+        "Users receive emails for new posts by authors they follow.",
+        "Users receive emails for comments on their posts.",
+        "Users can manage notification preferences."
+      ]
+    },
+    {
+      "user_story": "As a user, I want to customize my profile, so that I can personalize my presence on the platform.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "User Profile Page" },
+          "backend": { "api_route": "/api/user/profile" }
+        }
+      },
+      "estimation": 12,
+      "acceptance_criteria": [
+        "Users can update profile pictures and bio.",
+        "Profile changes are reflected immediately.",
+        "Users can view their profile as others see it."
+      ]
+    },
+    {
+      "user_story": "As an author, I want to view engagement metrics for my blog posts, so that I can understand my audience better.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Analytics Dashboard" },
+          "backend": { "api_route": "/api/analytics/engagement" }
+        }
+      },
+      "estimation": 18,
+      "acceptance_criteria": [
+        "Authors can view metrics like views, likes, and comments.",
+        "Metrics are updated in real-time or near real-time.",
+        "Data is presented in a user-friendly dashboard."
+      ]
+    },
+    {
+      "user_story": "As an admin, I want to manage user accounts, so that I can ensure a safe and respectful community.",
+      "deliverables": {
+        "architecture_design": {
+          "frontend": { "private_page": "Admin Panel" },
+          "backend": { "api_route": "/api/admin/user-management" }
+        }
+      },
+      "estimation": 20,
+      "acceptance_criteria": [
+        "Admins can view, edit, and delete user accounts.",
+        "Admins can ban or moderate users.",
+        "User actions are logged for audit purposes."
+      ]
+    }
+  ]
+}

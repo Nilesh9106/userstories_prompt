@@ -1,0 +1,19 @@
+{
+  "name": "prompt-engineering",
+  "version": "1.0.0",
+  "main": "user_stories_chatgpt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.28.0",
+    "@azure/openai": "^2.0.0-beta.2",
+    "dotenv": "^16.4.5",
+    "openai": "^4.67.2"
+  }
+}
