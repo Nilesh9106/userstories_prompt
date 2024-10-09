@@ -6,7 +6,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Sign-Up Page" },
-          "backend": { "api_route": "/api/auth/signup" }
+          "backend": { "api_route": "/api/signup" }
         }
       },
       "estimation": 8,
@@ -20,7 +20,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Login Page" },
-          "backend": { "api_route": "/api/auth/login" }
+          "backend": { "api_route": "/api/login" }
         }
       },
       "estimation": 8,
@@ -34,7 +34,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Social Media Login Page" },
-          "backend": { "api_route": "/api/auth/social-login" }
+          "backend": { "api_route": "/api/social-login" }
         }
       },
       "estimation": 20,
@@ -49,7 +49,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Create Blog Post Page" },
-          "backend": { "api_route": "/api/blog/create" }
+          "backend": { "api_route": "/api/create-post" }
         }
       },
       "estimation": 16,
@@ -64,7 +64,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Draft Management Page" },
-          "backend": { "api_route": "/api/blog/draft" }
+          "backend": { "api_route": "/api/save-draft" }
         }
       },
       "estimation": 12,
@@ -79,7 +79,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Content Scheduling Page" },
-          "backend": { "api_route": "/api/blog/schedule" }
+          "backend": { "api_route": "/api/schedule-post" }
         }
       },
       "estimation": 20,
@@ -94,7 +94,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Edit Blog Post Page" },
-          "backend": { "api_route": "/api/blog/edit" }
+          "backend": { "api_route": "/api/edit-post" }
         }
       },
       "estimation": 8,
@@ -108,7 +108,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Delete Blog Post Page" },
-          "backend": { "api_route": "/api/blog/delete" }
+          "backend": { "api_route": "/api/delete-post" }
         }
       },
       "estimation": 8,
@@ -122,7 +122,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "public_page": "Browse Blogs Page" },
-          "backend": { "api_route": "/api/blog/browse" }
+          "backend": { "api_route": "/api/browse-blogs" }
         }
       },
       "estimation": 16,
@@ -136,8 +136,8 @@
       "user_story": "As a user, I want to search for specific blog posts, so that I can quickly find content.",
       "deliverables": {
         "architecture_design": {
-          "frontend": { "public_page": "Search Blogs Page" },
-          "backend": { "api_route": "/api/blog/search" }
+          "frontend": { "public_page": "Search Page" },
+          "backend": { "api_route": "/api/search" }
         }
       },
       "estimation": 12,
@@ -152,7 +152,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "public_page": "Read Blog Post Page" },
-          "backend": { "api_route": "/api/blog/read" }
+          "backend": { "api_route": "/api/read-post" }
         }
       },
       "estimation": 10,
@@ -166,8 +166,8 @@
       "user_story": "As a user, I want to leave comments on blog posts, so that I can engage with the content and author.",
       "deliverables": {
         "architecture_design": {
-          "frontend": { "private_page": "Commenting System Page" },
-          "backend": { "api_route": "/api/blog/comment" }
+          "frontend": { "private_page": "Comment Section" },
+          "backend": { "api_route": "/api/add-comment" }
         }
       },
       "estimation": 18,
@@ -178,16 +178,16 @@
       ]
     },
     {
-      "user_story": "As a user, I want to receive notifications for comments on my posts, so that I stay updated.",
+      "user_story": "As a user, I want to receive notifications for comments on my posts, so that I stay informed about interactions.",
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Notifications Page" },
-          "backend": { "api_route": "/api/notifications/comments" }
+          "backend": { "api_route": "/api/notifications" }
         }
       },
       "estimation": 10,
       "acceptance_criteria": [
-        "Users receive notifications for comments on their posts.",
+        "Users receive notifications for new comments.",
         "Notifications are displayed in a user-friendly manner.",
         "Users can clear or manage notifications."
       ]
@@ -196,8 +196,8 @@
       "user_story": "As a user, I want to like or dislike blog posts, so that I can express my opinions.",
       "deliverables": {
         "architecture_design": {
-          "frontend": { "private_page": "Like/Dislike Feature Page" },
-          "backend": { "api_route": "/api/blog/like-dislike" }
+          "frontend": { "private_page": "Like/Dislike Section" },
+          "backend": { "api_route": "/api/like-dislike" }
         }
       },
       "estimation": 10,
@@ -211,8 +211,8 @@
       "user_story": "As a user, I want to share blog posts on social media, so that I can spread interesting content.",
       "deliverables": {
         "architecture_design": {
-          "frontend": { "private_page": "Share Functionality Page" },
-          "backend": { "api_route": "/api/blog/share" }
+          "frontend": { "private_page": "Share Section" },
+          "backend": { "api_route": "/api/share" }
         }
       },
       "estimation": 12,
@@ -227,7 +227,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Tag and Category Management Page" },
-          "backend": { "api_route": "/api/admin/tags-categories" }
+          "backend": { "api_route": "/api/manage-tags-categories" }
         }
       },
       "estimation": 14,
@@ -242,7 +242,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Media Library Page" },
-          "backend": { "api_route": "/api/media/library" }
+          "backend": { "api_route": "/api/manage-media" }
         }
       },
       "estimation": 16,
@@ -256,8 +256,8 @@
       "user_story": "As a user, I want to receive email notifications for new posts and interactions, so that I stay updated.",
       "deliverables": {
         "architecture_design": {
-          "frontend": { "private_page": "Email Notifications Settings Page" },
-          "backend": { "api_route": "/api/notifications/email" }
+          "frontend": { "private_page": "Email Notification Settings Page" },
+          "backend": { "api_route": "/api/email-notifications" }
         }
       },
       "estimation": 18,
@@ -268,26 +268,11 @@
       ]
     },
     {
-      "user_story": "As a user, I want to receive real-time notifications within the app, so that I am aware of interactions.",
-      "deliverables": {
-        "architecture_design": {
-          "frontend": { "private_page": "In-App Notifications Page" },
-          "backend": { "api_route": "/api/notifications/in-app" }
-        }
-      },
-      "estimation": 20,
-      "acceptance_criteria": [
-        "Users receive notifications for comments and likes.",
-        "Notifications are displayed in a user-friendly manner.",
-        "Users can clear or manage notifications."
-      ]
-    },
-    {
       "user_story": "As a user, I want to customize my profile, so that I can express my identity on the platform.",
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Profile Customization Page" },
-          "backend": { "api_route": "/api/user/profile" }
+          "backend": { "api_route": "/api/customize-profile" }
         }
       },
       "estimation": 14,
@@ -302,7 +287,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Follow Authors Page" },
-          "backend": { "api_route": "/api/user/follow" }
+          "backend": { "api_route": "/api/follow-authors" }
         }
       },
       "estimation": 12,
@@ -316,8 +301,8 @@
       "user_story": "As an author, I want to view engagement metrics, so that I can understand my audience better.",
       "deliverables": {
         "architecture_design": {
-          "frontend": { "private_page": "Engagement Metrics Dashboard" },
-          "backend": { "api_route": "/api/author/metrics" }
+          "frontend": { "private_page": "Analytics Dashboard" },
+          "backend": { "api_route": "/api/engagement-metrics" }
         }
       },
       "estimation": 16,
@@ -332,7 +317,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "User Management Page" },
-          "backend": { "api_route": "/api/admin/user-management" }
+          "backend": { "api_route": "/api/manage-users" }
         }
       },
       "estimation": 18,
@@ -347,7 +332,7 @@
       "deliverables": {
         "architecture_design": {
           "frontend": { "private_page": "Content Moderation Page" },
-          "backend": { "api_route": "/api/admin/content-moderation" }
+          "backend": { "api_route": "/api/moderate-content" }
         }
       },
       "estimation": 20,

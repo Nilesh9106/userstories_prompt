@@ -1,3 +1,5 @@
+import { configDotenv } from "dotenv";
+configDotenv();
 export const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
 export const AZURE_OPENAI_API_KEY = process.env.AZURE_OPENAI_API_KEY;
 export const AZURE_OPENAI_ENDPOINT = process.env.AZURE_OPENAI_ENDPOINT;

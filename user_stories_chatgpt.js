@@ -1,14 +1,13 @@
 import fs from "fs";
 import { AzureOpenAI } from "openai";
+import { configDotenv } from "dotenv";
+configDotenv();
 import {
   AZURE_OPENAI_API_KEY,
   AZURE_OPENAI_DEPLOYMENT_NAME,
   AZURE_OPENAI_DEPLOYMENT_NAME_MINI,
   AZURE_OPENAI_ENDPOINT,
 } from "./env.js";
-
-import { configDotenv } from "dotenv";
-configDotenv();
 
 const FeedbackSchema = {
   name: "generate_feedback",
@@ -226,28 +225,44 @@ const generate_user_stories = async (requirements) => {
     `;
 
   console.log("Generating user stories...");
-  const userStoriesResponse = await getResponseFromLLM(
-    userPrompt,
-    systemPrompt
-  );
-  fs.writeFileSync("results/user_stories_response_v2.md", userStoriesResponse);
-  // const userStoriesResponse = fs.readFileSync(
-  //   "results/user_stories_response1.md",
-  //   "utf-8"
+  // const userStoriesResponse = await getResponseFromLLM(
+  //   userPrompt,
+  //   systemPrompt
   // );
+  // fs.writeFileSync("results/user_stories_response_v2.md", userStoriesResponse);
+  const userStoriesResponse = fs.readFileSync(
+    "results/user_stories_response1.md",
+    "utf-8"
+  );
 
   // console.log("Asking for feedback...");
   // const feedbacks = await askForFeedback(userStoriesResponse, requirements);
-
+  const feedbacks = JSON.stringify(
+    JSON.parse(fs.readFileSync("results/feedbacks.json", "utf-8")).comments
+  );
   console.log("Refining user stories...");
+
+  // using feedbacks
+  // const refinedUserStories = await getResponseFromLLMWithSchema(
+  //   `Fix the below user stories: \n ${userStoriesResponse}.
+  //   There are few feedbacks from project manager on the user stories. Please make sure to address them. Feedbacks : ${feedbacks}
+  //   STRICTLY Make sure the one user story is corresponding to only one task (e.g. 'As a User, I can signup and login...' should be separated into 'As a User, I can signup...' and 'As a User,I can login'). STRICTLY return JSON, don't include any other information.`,
+  //   reEvaluationSystemPrompt,
+  //   UserStoriesV1FunctionSchema,
+  //   "generate_user_stories"
+  // );
+
+  //without using feedbacks
   const refinedUserStories = await getResponseFromLLMWithSchema(
-    `Fix the below user stories: \n ${userStoriesResponse}.STRICTLY Make sure the one user story is corresponding to only one task (e.g. 'As a User, I can signup and login...' should be separated into 'As a User, I can signup...' and 'As a User,I can login'). STRICTLY return JSON, don't include any other information.`,
+    `Fix the below user stories: \n ${userStoriesResponse}.
+    STRICTLY Make sure the one user story is corresponding to only one task (e.g. 'As a User, I can signup and login...' should be separated into 'As a User, I can signup...' and 'As a User,I can login'). STRICTLY return JSON, don't include any other information.`,
     reEvaluationSystemPrompt,
     UserStoriesV1FunctionSchema,
     "generate_user_stories"
   );
+
   fs.writeFileSync(
-    "results/refined_user_stories_v2.json",
+    "results/refined_user_stories_with_feedback.json",
     JSON.stringify(refinedUserStories)
   );
   // const refinedUserStories = JSON.parse(
