@@ -211,10 +211,10 @@ async function getResponseFromLLMWithSchema(
 
 const generate_user_stories = async (requirements) => {
   const systemPrompt = fs.readFileSync(
-    "prompts/user_stories_prompt_v2.md",
+    "prompts/user_stories_prompt_v3.md",
     "utf-8"
   );
-  const userPrompt = `Create user stories for the given product Key Features. Key Features: \n ${requirements}.`;
+  const userPrompt = `Create user stories for the given product Requirements. Requirements: \n ${requirements}.`;
   const reEvaluationSystemPrompt = `You are a Technical Lead at a tech company. 
       You have been tasked with fixing user stories which are created by product owner for the following key features: \n ${requirements}.
       Make sure the one user story is corresponding to only one task. For example if we have a user story to implement browse and search posts then we need to make it into two stories one for browse post and another for implementing search feature.
@@ -225,21 +225,21 @@ const generate_user_stories = async (requirements) => {
     `;
 
   console.log("Generating user stories...");
-  // const userStoriesResponse = await getResponseFromLLM(
-  //   userPrompt,
-  //   systemPrompt
+  const userStoriesResponse = await getResponseFromLLM(
+    userPrompt,
+    systemPrompt
+  );
+  fs.writeFileSync("results/user_stories_response_v3.md", userStoriesResponse);
+  // const userStoriesResponse = fs.readFileSync(
+  //   "results/user_stories_response_v3.md",
+  //   "utf-8"
   // );
-  // fs.writeFileSync("results/user_stories_response_v2.md", userStoriesResponse);
-  const userStoriesResponse = fs.readFileSync(
-    "results/user_stories_response1.md",
-    "utf-8"
-  );
 
-  // console.log("Asking for feedback...");
+  console.log("Asking for feedback...");
   // const feedbacks = await askForFeedback(userStoriesResponse, requirements);
-  const feedbacks = JSON.stringify(
-    JSON.parse(fs.readFileSync("results/feedbacks.json", "utf-8")).comments
-  );
+  // const feedbacks = JSON.stringify(
+  //   JSON.parse(fs.readFileSync("results/feedbacks.json", "utf-8")).comments
+  // );
   console.log("Refining user stories...");
 
   // using feedbacks
@@ -253,18 +253,18 @@ const generate_user_stories = async (requirements) => {
   // );
 
   //without using feedbacks
-  const refinedUserStories = await getResponseFromLLMWithSchema(
-    `Fix the below user stories: \n ${userStoriesResponse}.
-    STRICTLY Make sure the one user story is corresponding to only one task (e.g. 'As a User, I can signup and login...' should be separated into 'As a User, I can signup...' and 'As a User,I can login'). STRICTLY return JSON, don't include any other information.`,
-    reEvaluationSystemPrompt,
-    UserStoriesV1FunctionSchema,
-    "generate_user_stories"
-  );
+  // const refinedUserStories = await getResponseFromLLMWithSchema(
+  //   `Fix the below user stories: \n ${userStoriesResponse}.
+  //   STRICTLY Make sure the one user story is corresponding to only one task (e.g. 'As a User, I can signup and login...' should be separated into 'As a User, I can signup...' and 'As a User,I can login'). STRICTLY return JSON, don't include any other information.`,
+  //   reEvaluationSystemPrompt,
+  //   UserStoriesV1FunctionSchema,
+  //   "generate_user_stories"
+  // );
 
-  fs.writeFileSync(
-    "results/refined_user_stories_with_feedback.json",
-    JSON.stringify(refinedUserStories)
-  );
+  // fs.writeFileSync(
+  //   "results/refined_user_stories_v3.json",
+  //   JSON.stringify(refinedUserStories)
+  // );
   // const refinedUserStories = JSON.parse(
   //   fs.readFileSync("results/refined_user_stories.json", "utf-8")
   // );
