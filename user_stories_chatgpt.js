@@ -211,7 +211,7 @@ async function getResponseFromLLMWithSchema(
 
 const generate_user_stories = async (requirements) => {
   const systemPrompt = fs.readFileSync(
-    "prompts/user_stories_prompt_v3.md",
+    "prompts/user_stories_prompt.md",
     "utf-8"
   );
   const userPrompt = `Create user stories for the given product Requirements. Requirements: \n ${requirements}.`;
@@ -229,7 +229,7 @@ const generate_user_stories = async (requirements) => {
     userPrompt,
     systemPrompt
   );
-  fs.writeFileSync("results/user_stories_response_v3.md", userStoriesResponse);
+  fs.writeFileSync("results/user_stories_response_v4.md", userStoriesResponse);
   // const userStoriesResponse = fs.readFileSync(
   //   "results/user_stories_response_v3.md",
   //   "utf-8"
