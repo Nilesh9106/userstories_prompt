@@ -24,7 +24,7 @@ For each user story, provide the following in JSON format:
 3. Acceptance Criteria: Detailed list of conditions that must be met for the story to be considered complete
 4. Deliverables:
    - Architecture Design:
-     - Frontend: Specify private pages, using Next.js with shadcn/ui components and Tailwind CSS
+     - Frontend: Specify private/public pages, using Next.js with shadcn/ui components and Tailwind CSS
      - Backend: Provide a concise description of the API's functionality
 
 ## Example Output Format
